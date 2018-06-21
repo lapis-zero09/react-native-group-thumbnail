@@ -1,0 +1,3 @@
+rootProject.name = 'GroupThumbnail'
+
+include ':app'
