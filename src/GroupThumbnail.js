@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
 //   border-radius: 5px;
 // `
 
-const getMemberIconList = (members: Array<memberProps>) => {
-  const memberIconList = members
+const getMemberThumbList = (members: Array<memberProps>) => {
+  const memberThumbList = members
     .filter(
       (member) =>
         (member.name || member.iconPath) &&
@@ -43,7 +43,7 @@ const getMemberIconList = (members: Array<memberProps>) => {
           : member.name.charAt(0),
       // getOr('', ['name', charAt(0)], member),
     )
-  return memberIconList
+  return memberThumbList
 }
 
 export class GroupThumbnail extends Component<Props> {
@@ -57,7 +57,7 @@ export class GroupThumbnail extends Component<Props> {
       // { name: 'fsafd' },
       {},
     ]
-    console.log(getMemberIconList(members))
+    console.log(getMemberThumbList(members))
     return (
       <View style={[styles.container]}>
         <Text style={[styles.text]}>hello! from index.js</Text>
