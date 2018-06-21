@@ -13,7 +13,8 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios --port 4000",
     "test": "jest",
-    "build": "./build.sh"
+    "build": "./build.sh",
+    "clean": "yarn cache clean"
   },
   "jest": {
     "preset": "react-native"
@@ -22,6 +23,7 @@
     "native-base": "^2.5.2",
     "react": "16.3.1",
     "react-native": "~0.55.2",
-    "sane": "^2.5.2"
+    "sane": "^2.5.2",
+    "styled-components": "^3.3.3"
   }
 }

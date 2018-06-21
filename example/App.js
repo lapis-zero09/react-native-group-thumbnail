@@ -1,5 +1,18 @@
 import React from 'react'
-import { Body, Title, Right, Root, Content, Container, Header, List, ListItem, Left, Thumbnail } from 'native-base'
+import {
+  Body,
+  Title,
+  Right,
+  Root,
+  Content,
+  Container,
+  Header,
+  List,
+  ListItem,
+  Left,
+  Thumbnail,
+  View,
+} from 'native-base'
 import { StyleSheet, Text } from 'react-native'
 import { GroupThumbnail } from 'react-native-group-thumbnail'
 
@@ -15,7 +28,8 @@ const styles = StyleSheet.create({
 const ListItemComponent = (rowData) => (
   <ListItem avatar style={[styles.container]}>
     <Left>
-      <Thumbnail small source={{ uri: rowData.url }} />
+      <GroupThumbnail members={[{ name: rowData.name, iconPath: rowData.iconPath }]} />
+      {/* <Thumbnail small source={{ uri: rowData.iconPath }} /> */}
     </Left>
     <Body>
       <Text>{rowData.name}</Text>
@@ -30,27 +44,48 @@ const ListItemComponent = (rowData) => (
 export default class App extends React.Component<{}> {
   constructor() {
     super()
-
     this.state = {
       dataSource: [
         {
-          url: 'https://avatars3.githubusercontent.com/u/12763048?s=460&v=4',
+          iconPath: '',
           name: 'lapis-zero09',
           text: 'hello',
           time: '3:43pm',
         },
         {
-          url: 'https://avatars3.githubusercontent.com/u/12763048?s=460&v=4',
-          name: 'name2',
-          text: 'this is sentence from name2',
+          iconPath: 'https://avatars3.githubusercontent.com/u/12763048?s=460&v=4',
+          name: '',
+          text: 'this is test sentence.',
           time: '2:01pm',
         },
         {
-          url: 'https://avatars3.githubusercontent.com/u/12763048?s=460&v=4',
-          name: 'name3',
-          text: 'this is sentence from name3',
+          iconPath: '',
+          name: 'Tom Michel',
+          text: 'Are u crazy?',
           time: '10:15am',
         },
+        {
+          iconPath: '',
+          name: '河野　晋策',
+          text: 'あああああああああああaaaaaaaaaaaaaaaaaaaaaaaaaaaあああああ',
+          time: '10:15am',
+        },
+        {
+          iconPath: '',
+          name: '渡辺',
+          text: 'this is sentence from fdsfさf',
+          time: '10:15am',
+        },
+      ],
+      members: [
+        { name: 'test', iconPath: '' },
+        { name: 'あ', iconPath: null },
+        { name: null, iconPath: 'https://avatars3.githubusercontent.com/u/12763048?s=460&v=4' },
+        { iconPath: 'https://avatars3.githubusercontent.com/u/12763048?s=460&v=4' },
+        { name: '' },
+        { name: 'fdsfa', iconPath: 'https://avatars3.githubusercontent.com/u/12763048?s=460&v=4' },
+        { name: 'fsafd' },
+        {},
       ],
     }
   }
@@ -67,7 +102,6 @@ export default class App extends React.Component<{}> {
           <Content>
             <List dataArray={this.state.dataSource} renderRow={(rowData) => <ListItemComponent {...rowData} />} />
           </Content>
-          <GroupThumbnail />
         </Container>
       </Root>
     )

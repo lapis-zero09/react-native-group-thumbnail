@@ -8,7 +8,8 @@
     "test": "npm run jest && npm run lint",
     "jest": "jest",
     "lint": "eslint src",
-    "flow": "flow"
+    "flow": "flow",
+    "clean": "yarn cache clean"
   },
   "jest": {
     "preset": "react-native"
@@ -17,21 +18,24 @@
     "react-native"
   ],
   "author": "lapis-zero09 (https://www.lapis-zero09.xyz/profile/)",
-  "license": "",
+  "license": "MIT",
   "modulePathIgnorePatterns": [
     "<rootDir>/example"
   ],
   "dependencies": {
     "flow": "^0.2.3",
     "lodash": "^4.17.10",
-    "lodash-fp": "^0.10.4",
+    "native-base": "^2.6.0",
     "react": "16.3.1",
     "react-native": "~0.55.2",
     "styled-components": "^3.3.3"
   },
   "peerDependencies": {
     "react": "16.3.1",
-    "react-native": "~0.55.2"
+    "react-native": "~0.55.2",
+    "lodash": "^4.17.10",
+    "native-base": "^2.6.0",
+    "styled-components": "^3.3.3"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
