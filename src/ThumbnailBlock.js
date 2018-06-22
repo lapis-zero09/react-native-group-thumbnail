@@ -24,28 +24,26 @@ const InitialIconSingleText = styled.Text`
 `
 
 const InitialIconMultipleText = styled.Text`
-  margin-bottom: ${(p) => (p.bottom ? '5px' : '1px')};
-  margin-top: ${(p) => (p.top ? '5px' : '1px')};
-  margin-right: ${(p) => (p.right ? '5px' : '1px')};
-  margin-left: ${(p) => (p.left ? '5px' : '1px')};
+  margin-right: ${(p) => (p.right ? '0px' : '1px')};
+  margin-left: ${(p) => (p.left ? '-1px' : '1px')};
   font-size: 14px;
   ${InitialTextFormat};
+  margin: 1px;
 `
 
 const InitialIconSingle = styled(Image)`
-  margin-right: ${(p) => (p.right ? '3px' : '0.5px')};
-  margin-left: ${(p) => (p.left ? '3px' : '0.5px')};
   width: 19px;
   height: 38px;
+  margin-right: ${(p) => (p.right ? '0px' : '1px')};
+  margin-left: ${(p) => (p.left ? '-1px' : '1px')};
 `
 
 const InitialIconMultiple = styled(Image)`
-  margin-bottom: ${(p) => (p.bottom ? '5px' : '1px')};
-  margin-top: ${(p) => (p.top ? '5px' : '1px')};
-  margin-right: ${(p) => (p.right ? '5px' : '1px')};
-  margin-left: ${(p) => (p.left ? '5px' : '1px')};
-  width: 19px;
-  height: 19px;
+  width: 20px;
+  height: 20px;
+  margin-bottom: ${(p) => (p.bottom ? '3px' : '0px')};
+  margin-top: ${(p) => (p.top ? '3px' : '0px')};
+  margin-left: ${(p) => (p.left ? '-1px' : '1px')};
 `
 
 const SingleTextView = styled.View`
