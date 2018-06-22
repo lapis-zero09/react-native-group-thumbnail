@@ -24,11 +24,12 @@ const InitialIconSingleText = styled.Text`
 `
 
 const InitialIconMultipleText = styled.Text`
-  margin-right: ${(p) => (p.right ? '0px' : '1px')};
-  margin-left: ${(p) => (p.left ? '-1px' : '1px')};
+  margin-bottom: ${(p) => (p.bottom ? '5px' : '1px')};
+  margin-top: ${(p) => (p.top ? '5px' : '1px')};
+  margin-right: ${(p) => (p.right ? '5px' : '1px')};
+  margin-left: ${(p) => (p.left ? '5px' : '1px')};
   font-size: 14px;
   ${InitialTextFormat};
-  margin: 1px;
 `
 
 const InitialIconSingle = styled(Image)`
@@ -41,8 +42,8 @@ const InitialIconSingle = styled(Image)`
 const InitialIconMultiple = styled(Image)`
   width: 20px;
   height: 20px;
-  margin-bottom: ${(p) => (p.bottom ? '3px' : '0px')};
-  margin-top: ${(p) => (p.top ? '3px' : '0px')};
+  margin-top: ${(p) => (p.top ? '0px' : '1px')};
+  margin-bottom: ${(p) => (p.bottom ? '-1px' : '1px')};
   margin-left: ${(p) => (p.left ? '-1px' : '1px')};
 `
 
