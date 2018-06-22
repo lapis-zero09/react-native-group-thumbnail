@@ -32,16 +32,34 @@ const InitialIconMultipleText = styled.Text`
   ${InitialTextFormat};
 `
 
+const InitialIconSingle = styled(Image)`
+  margin-right: ${(p) => (p.right ? '3px' : '0.5px')};
+  margin-left: ${(p) => (p.left ? '3px' : '0.5px')};
+  width: 19px;
+  height: 38px;
+`
+
+const InitialIconMultiple = styled(Image)`
+  margin-bottom: ${(p) => (p.bottom ? '5px' : '1px')};
+  margin-top: ${(p) => (p.top ? '5px' : '1px')};
+  margin-right: ${(p) => (p.right ? '5px' : '1px')};
+  margin-left: ${(p) => (p.left ? '5px' : '1px')};
+  width: 19px;
+  height: 19px;
+`
+
 const SingleTextView = styled.View`
-  background-color: rgb(153, 153, 153);
+  background-color: rgba(0, 0, 0, 0);
   width: 19px;
   height: 38px;
 `
 
 const MultipleTextView = styled.View`
-  background-color: rgb(153, 153, 153);
+  background-color: rgba(0, 0, 0, 0);
   width: 19px;
   height: 19px;
+  justify-content: space-evenly;
+  align-items: center;
 `
 
 const InitialIconText = styled.Text`
@@ -130,32 +148,24 @@ const ThumbnailBlock = ({ item, options }: Props) => {
     // left content
     if (options.includes('top')) {
       // top left content
-      return (
-        <Image left top source={{ uri: item }} style={{ width: 19, height: 19, marginBottom: 0.5, marginRight: 0.5 }} />
-      )
+      return <InitialIconMultiple left top source={{ uri: item }} />
     } else if (options.includes('bottom')) {
       // bottom left content
-      return (
-        <Image left bottom source={{ uri: item }} style={{ width: 19, height: 19, marginRight: 0.5, marginTop: 0.5 }} />
-      )
+      return <InitialIconMultiple left bottom source={{ uri: item }} />
     }
     // left single content
-    return <Image left source={{ uri: item }} style={{ width: 19, height: 38, marginRight: 0.5 }} />
+    return <InitialIconSingle left source={{ uri: item }} />
   } else if (options.includes('right')) {
     // right content
     if (options.includes('top')) {
       // top right content
-      return (
-        <Image right top source={{ uri: item }} style={{ width: 19, height: 19, marginBottom: 0.5, marginLeft: 0.5 }} />
-      )
+      return <InitialIconMultiple right top source={{ uri: item }} />
     } else if (options.includes('bottom')) {
       // bottom right content
-      return (
-        <Image right bottom source={{ uri: item }} style={{ width: 19, height: 19, marginLeft: 0.5, marginTop: 0.5 }} />
-      )
+      return <InitialIconMultiple right bottom source={{ uri: item }} />
     }
     // right single Image
-    return <Image right source={{ uri: item }} style={{ width: 19, height: 38, marginLeft: 0.5 }} />
+    return <InitialIconSingle right source={{ uri: item }} />
   }
   // thumbnail only
   return <Thumbnail small source={{ uri: item }} />

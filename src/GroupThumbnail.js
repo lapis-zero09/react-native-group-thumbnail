@@ -44,10 +44,12 @@ type Props = { members: Array<memberProps> }
 
 const InlineGroup = styled.View`
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgb(153, 153, 153);
   height: 38px;
   width: 38px;
-  border-radius: 5px;
+  border-radius: 19px;
 `
 
 export class GroupThumbnail extends Component<Props> {
