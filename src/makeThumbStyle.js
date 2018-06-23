@@ -20,13 +20,12 @@ export default function makeThumbStyle(props: []) {
     borderRadius: 28,
   }
 
-  _.forEach(props, (prop, propName) => {
+  _.map(props, (prop, propName) => {
     if (typeof prop !== 'object') {
-      // console.log('propName', propName)
-      // console.log('prop', prop)
       theme = { ...thumbnailStyle[propName] }
     }
   })
+
   if (props.square) {
     theme.borderRadius = 0
   }
