@@ -1,6 +1,44 @@
 # react-native-group-thumbnail example app
 
-## help
+## Install
+
+### Install node modules
+
+```
+yarn
+```
+
+or
+
+```
+npm install
+```
+
+### Install react-native-group-thumbnail
+
+```
+yarn build
+```
+
+or
+
+```
+npm run build
+```
+
+### Run app
+
+```
+yarn ios
+```
+
+or
+
+```
+npm run ios
+```
+
+## Help
 
 Somethimes you need ....
 
