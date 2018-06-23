@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components/native'
 import { css } from 'styled-components'
 import { View, StyleSheet } from 'react-native'
-// import { getOr } from 'lodash/fp'
 
 import ThumbnailBlock from './ThumbnailBlock'
 import getMemberThumbList from './getMemberThumbList'
@@ -46,6 +45,7 @@ const InlineGroup = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  overflow: hidden;
   background-color: rgb(153, 153, 153);
   height: 38px;
   width: 38px;
@@ -54,11 +54,7 @@ const InlineGroup = styled.View`
 
 export class GroupThumbnail extends Component<Props> {
   render() {
-    console.log('--------------before-----------------')
-    console.log(this.props.members)
     const memberThumbList = getMemberThumbList(this.props.members)
-    console.log(memberThumbList)
-    console.log('--------------after-----------------')
 
     if (!memberThumbList || memberThumbList === null) {
       return <View />
@@ -72,7 +68,6 @@ export class GroupThumbnail extends Component<Props> {
         <InlineGroup>
           <ThumbnailBlock item={memberThumbList[0]} options={['left']} />
           <ThumbnailBlock item={memberThumbList[1]} options={['right']} />
-          {/* <FuckingBoderMargin /> */}
         </InlineGroup>
       )
     } else if (memberThumbList.length === 3) {
@@ -83,7 +78,6 @@ export class GroupThumbnail extends Component<Props> {
             <ThumbnailBlock item={memberThumbList[1]} options={['top', 'right']} />
             <ThumbnailBlock item={memberThumbList[2]} options={['bottom', 'right']} />
           </View>
-          {/* <FuckingBoderMargin /> */}
         </InlineGroup>
       )
     }
@@ -97,7 +91,6 @@ export class GroupThumbnail extends Component<Props> {
           <ThumbnailBlock item={memberThumbList[1]} options={['top', 'right']} />
           <ThumbnailBlock item={memberThumbList[3]} options={['bottom', 'right']} />
         </View>
-        {/* <FuckingBoderMargin /> */}
       </InlineGroup>
     )
   }

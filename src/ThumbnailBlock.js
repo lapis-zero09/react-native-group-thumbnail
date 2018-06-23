@@ -1,7 +1,6 @@
 // @flow
 import React from 'react'
 import { Image } from 'react-native'
-import { Thumbnail } from 'native-base'
 import styled, { css } from 'styled-components'
 
 type Props = {
@@ -15,35 +14,36 @@ const InitialTextFormat = css`
   align-self: center;
 `
 
-const InitialIconSingleText = styled.Text`
+const InitialThumbSingleText = styled.Text`
   margin-right: ${(p) => (p.right ? '3px' : '0.5px')};
   margin-left: ${(p) => (p.left ? '3px' : '0.5px')};
   margin-top: 50%;
-  font-size: 16px;
-  ${InitialTextFormat};
-`
-
-const InitialIconMultipleText = styled.Text`
-  margin-bottom: ${(p) => (p.bottom ? '5px' : '1px')};
-  margin-top: ${(p) => (p.top ? '5px' : '1px')};
-  margin-right: ${(p) => (p.right ? '5px' : '1px')};
-  margin-left: ${(p) => (p.left ? '5px' : '1px')};
   font-size: 14px;
   ${InitialTextFormat};
 `
 
-const InitialIconSingle = styled(Image)`
-  width: 19px;
-  height: 38px;
+const InitialThumbMultipleText = styled.Text`
+  margin-bottom: ${(p) => (p.bottom ? '5px' : '1px')};
+  margin-top: ${(p) => (p.top ? '5px' : '1px')};
+  margin-right: ${(p) => (p.right ? '5px' : '1px')};
+  margin-left: ${(p) => (p.left ? '5px' : '1px')};
+  font-size: 12px;
+  ${InitialTextFormat};
+`
+
+const InitialThumbSingle = styled(Image)`
+  width: 20px;
+  height: 39px;
   margin-right: ${(p) => (p.right ? '0px' : '1px')};
   margin-left: ${(p) => (p.left ? '-1px' : '1px')};
 `
 
-const InitialIconMultiple = styled(Image)`
+const InitialThumbMultiple = styled(Image)`
   width: 20px;
   height: 20px;
   margin-top: ${(p) => (p.top ? '0px' : '1px')};
   margin-bottom: ${(p) => (p.bottom ? '-1px' : '1px')};
+  margin-right: ${(p) => (p.right ? '0px' : '1px')};
   margin-left: ${(p) => (p.left ? '-1px' : '1px')};
 `
 
@@ -61,15 +61,23 @@ const MultipleTextView = styled.View`
   align-items: center;
 `
 
-const InitialIconText = styled.Text`
+const InitialThumbText = styled.Text`
   margin: 3px;
   font-size: 25px;
   ${InitialTextFormat};
   border-radius: 19px;
 `
 
-const InitialIcon = styled.View`
+const InitialThumb = styled.View`
   background-color: rgb(153, 153, 153);
+  justify-content: center;
+  align-items: center;
+  height: 38px;
+  width: 38px;
+  border-radius: 19px;
+`
+
+const Thumb = styled(Image)`
   justify-content: center;
   align-items: center;
   height: 38px;
@@ -86,25 +94,25 @@ const ThumbnailBlock = ({ item, options }: Props) => {
         // left top content
         return (
           <MultipleTextView>
-            <InitialIconMultipleText top left>
+            <InitialThumbMultipleText top left>
               {item}
-            </InitialIconMultipleText>
+            </InitialThumbMultipleText>
           </MultipleTextView>
         )
       } else if (options.includes('bottom')) {
         // left bottom
         return (
           <MultipleTextView>
-            <InitialIconMultipleText bottom left>
+            <InitialThumbMultipleText bottom left>
               {item}
-            </InitialIconMultipleText>
+            </InitialThumbMultipleText>
           </MultipleTextView>
         )
       }
       // left single content
       return (
         <SingleTextView>
-          <InitialIconSingleText left>{item}</InitialIconSingleText>
+          <InitialThumbSingleText left>{item}</InitialThumbSingleText>
         </SingleTextView>
       )
     } else if (options.includes('right')) {
@@ -113,33 +121,33 @@ const ThumbnailBlock = ({ item, options }: Props) => {
         // right top content
         return (
           <MultipleTextView>
-            <InitialIconMultipleText top right>
+            <InitialThumbMultipleText top right>
               {item}
-            </InitialIconMultipleText>
+            </InitialThumbMultipleText>
           </MultipleTextView>
         )
       } else if (options.includes('bottom')) {
         // right bottom content
         return (
           <MultipleTextView>
-            <InitialIconMultipleText bottom right>
+            <InitialThumbMultipleText bottom right>
               {item}
-            </InitialIconMultipleText>
+            </InitialThumbMultipleText>
           </MultipleTextView>
         )
       }
       // right single content
       return (
         <SingleTextView>
-          <InitialIconSingleText right>{item}</InitialIconSingleText>
+          <InitialThumbSingleText right>{item}</InitialThumbSingleText>
         </SingleTextView>
       )
     }
-    // initialIcon only
+    // initialThumb only
     return (
-      <InitialIcon>
-        <InitialIconText>{item}</InitialIconText>
-      </InitialIcon>
+      <InitialThumb>
+        <InitialThumbText>{item}</InitialThumbText>
+      </InitialThumb>
     )
   }
   // thumbnail content
@@ -147,27 +155,27 @@ const ThumbnailBlock = ({ item, options }: Props) => {
     // left content
     if (options.includes('top')) {
       // top left content
-      return <InitialIconMultiple left top source={{ uri: item }} />
+      return <InitialThumbMultiple left top source={{ uri: item }} />
     } else if (options.includes('bottom')) {
       // bottom left content
-      return <InitialIconMultiple left bottom source={{ uri: item }} />
+      return <InitialThumbMultiple left bottom source={{ uri: item }} />
     }
     // left single content
-    return <InitialIconSingle left source={{ uri: item }} />
+    return <InitialThumbSingle left source={{ uri: item }} />
   } else if (options.includes('right')) {
     // right content
     if (options.includes('top')) {
       // top right content
-      return <InitialIconMultiple right top source={{ uri: item }} />
+      return <InitialThumbMultiple right top source={{ uri: item }} />
     } else if (options.includes('bottom')) {
       // bottom right content
-      return <InitialIconMultiple right bottom source={{ uri: item }} />
+      return <InitialThumbMultiple right bottom source={{ uri: item }} />
     }
     // right single Image
-    return <InitialIconSingle right source={{ uri: item }} />
+    return <InitialThumbSingle right source={{ uri: item }} />
   }
   // thumbnail only
-  return <Thumbnail small source={{ uri: item }} />
+  return <Thumb source={{ uri: item }} />
 }
 
 export default ThumbnailBlock
