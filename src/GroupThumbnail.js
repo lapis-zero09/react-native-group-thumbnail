@@ -1,18 +1,26 @@
 // @flow
 import React, { Component } from 'react'
 import styled from 'styled-components/native'
+import PropTypes from 'prop-types'
 import { css } from 'styled-components'
 import { View, StyleSheet } from 'react-native'
 
 import ThumbnailBlock from './ThumbnailBlock'
 import getMemberThumbList from './getMemberThumbList'
+import makeThumbStyle from './makeThumbStyle'
 
 type memberProps = {
   name: string | null,
   iconPath: string | null,
 }
 
-type Props = { members: Array<memberProps> }
+type Props = {
+  members: Array<memberProps>,
+  style: any,
+  square: boolean,
+  circular: boolean,
+  size: number,
+}
 
 // const styles = StyleSheet.create({
 //   InitialIconContainer: {
@@ -47,32 +55,45 @@ const InlineGroup = styled.View`
   justify-content: flex-start;
   overflow: hidden;
   background-color: rgb(153, 153, 153);
-  height: 38px;
-  width: 38px;
-  border-radius: 19px;
+  height: 36px;
+  width: 36px;
+  border-radius: 18px;
 `
 
 export class GroupThumbnail extends Component<Props> {
   render() {
     const memberThumbList = getMemberThumbList(this.props.members)
+    const thumbStyle = makeThumbStyle(this.props)
+    // console.log('------------after--------------')
+    // console.log(this.props)
+    // console.log(makeThumbStyle(this.props))
+    // console.log('-------------before-------------')
 
     if (!memberThumbList || memberThumbList === null) {
       return <View />
     }
     if (memberThumbList.length === 0) {
-      return <ThumbnailBlock item="" options={[]} />
+      return (
+        <InlineGroup style={thumbStyle}>
+          <ThumbnailBlock item="" options={[]} />
+        </InlineGroup>
+      )
     } else if (memberThumbList.length === 1) {
-      return <ThumbnailBlock item={memberThumbList[0]} options={[]} />
+      return (
+        <InlineGroup style={thumbStyle}>
+          <ThumbnailBlock item={memberThumbList[0]} options={[]} />
+        </InlineGroup>
+      )
     } else if (memberThumbList.length === 2) {
       return (
-        <InlineGroup>
+        <InlineGroup style={thumbStyle}>
           <ThumbnailBlock item={memberThumbList[0]} options={['left']} />
           <ThumbnailBlock item={memberThumbList[1]} options={['right']} />
         </InlineGroup>
       )
     } else if (memberThumbList.length === 3) {
       return (
-        <InlineGroup>
+        <InlineGroup style={thumbStyle}>
           <ThumbnailBlock item={memberThumbList[0]} options={['left']} />
           <View>
             <ThumbnailBlock item={memberThumbList[1]} options={['top', 'right']} />
@@ -82,7 +103,7 @@ export class GroupThumbnail extends Component<Props> {
       )
     }
     return (
-      <InlineGroup>
+      <InlineGroup style={thumbStyle}>
         <View>
           <ThumbnailBlock item={memberThumbList[0]} options={['top', 'left']} />
           <ThumbnailBlock item={memberThumbList[2]} options={['bottom', 'left']} />
@@ -94,4 +115,11 @@ export class GroupThumbnail extends Component<Props> {
       </InlineGroup>
     )
   }
+}
+
+GroupThumbnail.propTypes = {
+  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
+  square: PropTypes.bool,
+  circular: PropTypes.bool,
+  size: PropTypes.number,
 }

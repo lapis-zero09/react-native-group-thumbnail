@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import { Image } from 'react-native'
+import { Image, View } from 'react-native'
 import styled, { css } from 'styled-components'
 
 type Props = {
@@ -32,15 +32,15 @@ const InitialThumbMultipleText = styled.Text`
 `
 
 const InitialThumbSingle = styled(Image)`
-  width: 20px;
-  height: 39px;
+  width: 18px;
+  height: 36px;
   margin-right: ${(p) => (p.right ? '0px' : '1px')};
   margin-left: ${(p) => (p.left ? '-1px' : '1px')};
 `
 
 const InitialThumbMultiple = styled(Image)`
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   margin-top: ${(p) => (p.top ? '0px' : '1px')};
   margin-bottom: ${(p) => (p.bottom ? '-1px' : '1px')};
   margin-right: ${(p) => (p.right ? '0px' : '1px')};
@@ -49,14 +49,14 @@ const InitialThumbMultiple = styled(Image)`
 
 const SingleTextView = styled.View`
   background-color: rgba(0, 0, 0, 0);
-  width: 19px;
-  height: 38px;
+  width: 18px;
+  height: 36px;
 `
 
 const MultipleTextView = styled.View`
   background-color: rgba(0, 0, 0, 0);
-  width: 19px;
-  height: 19px;
+  width: 18px;
+  height: 18px;
   justify-content: space-evenly;
   align-items: center;
 `
@@ -65,24 +65,24 @@ const InitialThumbText = styled.Text`
   margin: 3px;
   font-size: 25px;
   ${InitialTextFormat};
-  border-radius: 19px;
+  border-radius: 18px;
 `
 
 const InitialThumb = styled.View`
   background-color: rgb(153, 153, 153);
   justify-content: center;
   align-items: center;
-  height: 38px;
-  width: 38px;
-  border-radius: 19px;
+  height: 36px;
+  width: 36px;
+  border-radius: 18px;
 `
 
 const Thumb = styled(Image)`
   justify-content: center;
   align-items: center;
-  height: 38px;
-  width: 38px;
-  border-radius: 19px;
+  height: 36px;
+  width: 36px;
+  border-radius: 18px;
 `
 
 const ThumbnailBlock = ({ item, options }: Props) => {
