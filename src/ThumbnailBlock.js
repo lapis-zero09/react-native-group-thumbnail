@@ -60,29 +60,6 @@ const ThumbnailText = styled.Text.attrs({
   margin-left: ${(props) => (props.left ? props.marginMaxSize : props.marginMinSize)}px;
 `
 
-// const SingleTextView = styled.View`
-//   background-color: rgba(0, 0, 0, 0);
-//   width: 18px;
-//   height: 36px;
-// `
-
-// const MultipleTextView = styled.View`
-//   background-color: rgba(0, 0, 0, 0);
-//   width: 18px;
-//   height: 18px;
-//   justify-content: space-evenly;
-//   align-items: center;
-// `
-
-// const InitialThumb = styled.View`
-//   background-color: rgb(153, 153, 153);
-//   justify-content: center;
-//   align-items: center;
-//   height: 36px;
-//   width: 36px;
-//   border-radius: 18px;
-// `
-
 const ThumbnailView = styled.View.attrs({
   size: (props) => (props.small ? 36 : (props.large ? 80 : 56)),
 })`
@@ -92,30 +69,6 @@ const ThumbnailView = styled.View.attrs({
   align-items: center;
   justify-content: center;
 `
-
-// const Thumb = styled(Image)`
-//   justify-content: center;
-//   align-items: center;
-//   height: 36px;
-//   width: 36px;
-//   border-radius: 18px;
-// `
-
-// const InitialThumbSingle = styled(Image)`
-//   width: 18px;
-//   height: 36px;
-//   margin-right: ${(p) => (p.right ? '0px' : '1px')};
-//   margin-left: ${(p) => (p.left ? '-1px' : '1px')};
-// `
-
-// const InitialThumbMultiple = styled(Image)`
-//   width: 18px;
-//   height: 18px;
-//   margin-top: ${(p) => (p.top ? '0px' : '1px')};
-//   margin-bottom: ${(p) => (p.bottom ? '-1px' : '1px')};
-//   margin-right: ${(p) => (p.right ? '0px' : '1px')};
-//   margin-left: ${(p) => (p.left ? '-1px' : '1px')};
-// `
 
 const Thumbnail = styled(Image).attrs({
   size: (props) => (props.small ? 36 : props.large ? 80 : 56),
