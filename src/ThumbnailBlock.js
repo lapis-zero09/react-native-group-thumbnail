@@ -13,11 +13,11 @@ const Center = css`
   align-items: center;
 `
 
-const InitialTextFormat = css`
-  color: #fff;
-  font-weight: bold;
-  align-self: center;
-`
+// const InitialTextFormat = css`
+//   color: #fff;
+//   font-weight: bold;
+//   align-self: center;
+// `
 
 // const ThumbnailText = styled.Text`
 //   margin-right: ${(p) => (p.right ? '3px' : '0.5px')};
@@ -51,7 +51,7 @@ const ThumbnailText = styled.Text.attrs({
   marginMinSize: (props) => (props.single ? 1 : 0.5),
 })`
   color: #fff;
-  align-self: center;
+  align-self: auto;
   font-weight: bold;
   font-size: ${(props) => (props.only ? props.size+10 :(props.single ? props.size+2 : props.size))}px;
   margin-bottom: ${(props) => (props.bottom ? props.marginMaxSize : props.marginMinSize)}px;
@@ -66,8 +66,7 @@ const ThumbnailView = styled.View.attrs({
   background-color: rgb(153, 153, 153);
   width: ${props => props.only ? props.size : props.size/2}px;
   height: ${props => props.only ? props.size : props.size/2}px;
-  align-items: center;
-  justify-content: center;
+  ${Center};
 `
 
 const Thumbnail = styled(Image).attrs({
