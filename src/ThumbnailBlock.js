@@ -1,12 +1,6 @@
-// @flow
 import React from 'react'
 import { Image } from 'react-native'
 import styled, { css } from 'styled-components'
-
-type Props = {
-  item: string,
-  options: Array<string>,
-}
 
 const Center = css`
   justify-content: center;
@@ -23,7 +17,7 @@ const ThumbnailText = styled.Text.attrs({
   font-weight: bold;
   align-self: center;
   font-size: ${(props) =>
-    ((props.only ? props.size + 10 : props.single ? props.size + 5 : props.size) * props.scale) / 2}px;
+    props.only ? props.size + 4 * props.scale : props.single ? props.size + 2 * props.scale : props.size}px;
   margin-bottom: ${(props) =>
     (props.single ? 0 : props.bottom ? props.marginMaxSize : props.marginMinSize) * props.scale}px;
   margin-top: ${(props) => (props.single ? 0 : props.top ? props.marginMaxSize : props.marginMinSize) * props.scale}px;
@@ -148,7 +142,6 @@ const ThumbnailBlock = (props: any) => {
     return <Thumbnail {...props} single right source={{ uri: props.item }} />
   }
   // thumbnail only
-  console.log(props)
   return <Thumbnail single only {...props} source={{ uri: props.item }} />
 }
 

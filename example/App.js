@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 const ListItemComponent = (rowData) => (
   <ListItem avatar style={[styles.container]}>
     <Left>
-      <GroupThumbnail square members={rowData.members} />
+      <GroupThumbnail small members={rowData.members} />
     </Left>
     <Body>
       <Text>{rowData.name}</Text>

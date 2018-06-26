@@ -1,8 +1,6 @@
-// @flow
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/native'
-// import { css } from 'styled-components'
 import { View } from 'react-native'
 
 import ThumbnailBlock from './ThumbnailBlock'
@@ -37,9 +35,6 @@ const InlineGroup = styled.View.attrs({
 export class GroupThumbnail extends Component<Props> {
   render() {
     const memberThumbList = getMemberThumbList(this.props.members)
-    // console.log('------------after--------------')
-    // console.log(this.props)
-    // console.log('-------------before-------------')
 
     if (!memberThumbList || memberThumbList === null) {
       return <View />
