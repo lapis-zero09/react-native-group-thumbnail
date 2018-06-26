@@ -9,7 +9,7 @@ module.exports = [
     name: '1人アイコン無し',
     text: 'hello',
     time: '3:43pm',
-    members: [{ name: 'lapis-zero09' }],
+    members: [{ name: '石井' }],
   },
   {
     name: '2人グループアイコンあり',
@@ -24,7 +24,7 @@ module.exports = [
     name: '2人グループアイコンなし',
     text: 'ur u crazy?',
     time: '1:15am',
-    members: [{ name: 'michael', iconPath: '' }, { name: 'lapis-zero09', iconPath: '' }],
+    members: [{ name: 'マイケル', iconPath: '' }, { name: '河野', iconPath: '' }],
   },
   {
     name: '2人グループ左アイコン',
@@ -32,7 +32,7 @@ module.exports = [
     time: '1:15am',
     members: [
       { name: 'michael', iconPath: 'https://avatars3.githubusercontent.com/u/9119338?s=460&v=4' },
-      { name: 'lapis-zero09', iconPath: '' },
+      { name: '森松', iconPath: '' },
     ],
   },
   {
@@ -40,7 +40,7 @@ module.exports = [
     text: 'ur u crazy?',
     time: '1:15am',
     members: [
-      { name: 'michael', iconPath: null },
+      { name: '高橋', iconPath: null },
       { name: 'lapis-zero09', iconPath: 'https://avatars3.githubusercontent.com/u/12763048?s=460&v=4' },
     ],
   },
@@ -128,28 +128,28 @@ module.exports = [
     members: [
       { name: null, iconPath: 'https://avatars3.githubusercontent.com/u/12763048?s=460&v=4' },
       { iconPath: 'https://avatars3.githubusercontent.com/u/9119338?s=460&v=4' },
-      { name: 'fdsfa', iconPath: 'https://avatars3.githubusercontent.com/u/12763048?s=460&v=4' },
-      { name: 'fdsfa', iconPath: 'https://avatars3.githubusercontent.com/u/9119338?s=460&v=4' },
+      { name: '西野', iconPath: 'https://avatars3.githubusercontent.com/u/12763048?s=460&v=4' },
+      { name: '石井', iconPath: 'https://avatars3.githubusercontent.com/u/9119338?s=460&v=4' },
     ],
   },
   {
     name: '4人グループアイコン無し',
     text: 'this is test sentence.',
     time: '2:01pm',
-    members: [{ name: 'test', iconPath: '' }, { name: 'あ', iconPath: null }, { name: '河野' }, { name: 'fsafd' }],
+    members: [{ name: '河野', iconPath: '' }, { name: '森松', iconPath: null }, { name: '辻' }, { name: '高橋' }],
   },
   {
     name: '4人グループ右アイコン',
     text: 'this is test sentence.',
     time: '2:01pm',
     members: [
-      { name: 'test', iconPath: '' },
-      { name: 'あ', iconPath: null },
+      { name: '辻', iconPath: '' },
+      { name: '石井', iconPath: null },
       { name: null, iconPath: 'https://avatars3.githubusercontent.com/u/12763048?s=460&v=4' },
       { iconPath: 'https://avatars3.githubusercontent.com/u/12763048?s=460&v=4' },
       { name: '' },
-      { name: 'fdsfa', iconPath: 'https://avatars3.githubusercontent.com/u/12763048?s=460&v=4' },
-      { name: 'fsafd' },
+      { name: '佐藤', iconPath: 'https://avatars3.githubusercontent.com/u/12763048?s=460&v=4' },
+      { name: '後藤' },
     ],
   },
   {
@@ -158,9 +158,9 @@ module.exports = [
     time: '2:01pm',
     members: [
       { name: null, iconPath: 'https://avatars3.githubusercontent.com/u/12763048?s=460&v=4' },
-      { name: 'あ', iconPath: null },
+      { name: '後藤', iconPath: null },
       { iconPath: 'https://avatars3.githubusercontent.com/u/12763048?s=460&v=4' },
-      { name: 'fsafd' },
+      { name: '佐藤' },
     ],
   },
 ]

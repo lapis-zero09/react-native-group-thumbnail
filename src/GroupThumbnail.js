@@ -1,13 +1,10 @@
-// @flow
 import React, { Component } from 'react'
-import styled from 'styled-components/native'
 import PropTypes from 'prop-types'
-import { css } from 'styled-components'
-import { View, StyleSheet } from 'react-native'
+import styled from 'styled-components/native'
+import { View } from 'react-native'
 
 import ThumbnailBlock from './ThumbnailBlock'
 import getMemberThumbList from './getMemberThumbList'
-import makeThumbStyle from './makeThumbStyle'
 
 type memberProps = {
   name: string | null,
@@ -22,95 +19,65 @@ type Props = {
   size: number,
 }
 
-// const styles = StyleSheet.create({
-//   InitialIconContainer: {
-//     height: 30,
-//     width: 30,
-//     borderRadius: 15,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     backgroundColor: 'red',
-//   },
-//   InitialIconText: {
-//     fontSize: 20,
-//     color: '#000000',
-//     alignItems: 'center',
-//     justifyContent: 'flex-end',
-//     borderRadius: 15,
-//     margin: 5,
-//   },
-//   Image: {
-//     height: 30,
-//     width: 30,
-//     borderRadius: 15,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     backgroundColor: 'red',
-//   },
-// })
-
-const InlineGroup = styled.View`
+const InlineGroup = styled.View.attrs({
+  size: (props) => (props.small ? 36 : props.large ? 80 : 56),
+})`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   overflow: hidden;
   background-color: rgb(153, 153, 153);
-  height: 36px;
-  width: 36px;
-  border-radius: 18px;
+  height: ${(props) => props.size}px;
+  width: ${(props) => props.size}px;
+  border-radius: ${(props) => (props.square ? 0 : props.size / 2)}px;
 `
 
 export class GroupThumbnail extends Component<Props> {
   render() {
     const memberThumbList = getMemberThumbList(this.props.members)
-    const thumbStyle = makeThumbStyle(this.props)
-    // console.log('------------after--------------')
-    // console.log(this.props)
-    // console.log(makeThumbStyle(this.props))
-    // console.log('-------------before-------------')
 
     if (!memberThumbList || memberThumbList === null) {
       return <View />
     }
     if (memberThumbList.length === 0) {
       return (
-        <InlineGroup style={thumbStyle}>
-          <ThumbnailBlock item="" options={[]} />
+        <InlineGroup {...this.props}>
+          <ThumbnailBlock {...this.props} item="" options={[]} />
         </InlineGroup>
       )
     } else if (memberThumbList.length === 1) {
       return (
-        <InlineGroup style={thumbStyle}>
-          <ThumbnailBlock item={memberThumbList[0]} options={[]} />
+        <InlineGroup {...this.props}>
+          <ThumbnailBlock {...this.props} item={memberThumbList[0]} options={[]} />
         </InlineGroup>
       )
     } else if (memberThumbList.length === 2) {
       return (
-        <InlineGroup style={thumbStyle}>
-          <ThumbnailBlock item={memberThumbList[0]} options={['left']} />
-          <ThumbnailBlock item={memberThumbList[1]} options={['right']} />
+        <InlineGroup {...this.props}>
+          <ThumbnailBlock {...this.props} item={memberThumbList[0]} options={['left']} />
+          <ThumbnailBlock {...this.props} item={memberThumbList[1]} options={['right']} />
         </InlineGroup>
       )
     } else if (memberThumbList.length === 3) {
       return (
-        <InlineGroup style={thumbStyle}>
-          <ThumbnailBlock item={memberThumbList[0]} options={['left']} />
+        <InlineGroup {...this.props}>
+          <ThumbnailBlock {...this.props} item={memberThumbList[0]} options={['left']} />
           <View>
-            <ThumbnailBlock item={memberThumbList[1]} options={['top', 'right']} />
-            <ThumbnailBlock item={memberThumbList[2]} options={['bottom', 'right']} />
+            <ThumbnailBlock {...this.props} item={memberThumbList[1]} options={['top', 'right']} />
+            <ThumbnailBlock {...this.props} item={memberThumbList[2]} options={['bottom', 'right']} />
           </View>
         </InlineGroup>
       )
     }
     return (
-      <InlineGroup style={thumbStyle}>
+      <InlineGroup {...this.props}>
         <View>
-          <ThumbnailBlock item={memberThumbList[0]} options={['top', 'left']} />
-          <ThumbnailBlock item={memberThumbList[2]} options={['bottom', 'left']} />
+          <ThumbnailBlock {...this.props} item={memberThumbList[0]} options={['top', 'left']} />
+          <ThumbnailBlock {...this.props} item={memberThumbList[2]} options={['bottom', 'left']} />
         </View>
         <View>
-          <ThumbnailBlock item={memberThumbList[1]} options={['top', 'right']} />
-          <ThumbnailBlock item={memberThumbList[3]} options={['bottom', 'right']} />
+          <ThumbnailBlock {...this.props} item={memberThumbList[1]} options={['top', 'right']} />
+          <ThumbnailBlock {...this.props} item={memberThumbList[3]} options={['bottom', 'right']} />
         </View>
       </InlineGroup>
     )

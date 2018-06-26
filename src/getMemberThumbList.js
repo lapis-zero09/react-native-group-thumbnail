@@ -1,4 +1,3 @@
-// @flow
 import { getOr } from 'lodash/fp'
 
 type memberProps = {
