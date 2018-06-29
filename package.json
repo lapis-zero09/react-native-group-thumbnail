@@ -12,7 +12,8 @@
     "clean": "yarn cache clean"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "testRegex": "__tests__/(.*).js?$"
   },
   "keywords": [
     "react-native"
