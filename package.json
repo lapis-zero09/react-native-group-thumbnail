@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "precommit": "lint-staged",
-    "test": "npm run jest && npm run lint",
+    "test": "npm run jest",
     "jest": "jest",
     "lint": "eslint src",
     "flow": "flow",
@@ -13,7 +13,14 @@
   },
   "jest": {
     "preset": "react-native",
-    "testRegex": "__tests__/(.*).js?$"
+    "globals": {
+      "__DEV__": true
+    },
+    "testRegex": "__tests__/(.*).js?$",
+    "modulePathIgnorePatterns": [
+      "Example"
+    ],
+    "testEnvironment": "node"
   },
   "keywords": [
     "react-native"
